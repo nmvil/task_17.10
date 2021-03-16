@@ -4,18 +4,26 @@ interface SpecialMove {
 	public function specialMove();
 }
 
-abstract class Transport {
-	protected function moveForward()
+abstract class Transport implements SpecialMove  {
+	protected $fuel = 70;
+
+	public function moveForward()
 	{
+		--$this->fuel;
 		// ... code ...
 	}
-	protected function moveBackward()
+	public function moveBackward()
 	{
+		--$this->fuel;
 		// ... code ...
+	}
+
+	function refuel (int $litre) {
+		$this->fuel += $litre;
 	}
 }
 
-class Car implements SpecialMove {
+class Car extends Transport {
 	protected function specialMove() 
 	{
 		// ... Nitro code ...
@@ -36,7 +44,7 @@ class Car implements SpecialMove {
 	protected function wipeWindow() {}
 }
 
-class Excavator implements SpecialMove {
+class Excavator extends Transport {
 	protected function specialMove() 
 	{
 		// ... shovel moving code ...

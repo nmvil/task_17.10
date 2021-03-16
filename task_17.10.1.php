@@ -1,6 +1,6 @@
 <?php
 
-class Family
+abstract class Family
 {
 	protected $peopleCount = 0;
 	protected $surname = 'Ivanov';

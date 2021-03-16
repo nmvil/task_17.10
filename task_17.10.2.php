@@ -28,6 +28,10 @@ class Car implements SpecialMove {
 		$model = $mod;
 	}
 
+	function changeColor (string $col) {
+		$this->$color = $col;
+	}
+
 	protected function horn() {}
 	protected function wipeWindow() {}
 }
